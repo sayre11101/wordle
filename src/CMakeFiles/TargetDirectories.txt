@@ -1,3 +1,0 @@
-/home/sayre/eclipse-workspace/wordle/src/CMakeFiles/src.dir
-/home/sayre/eclipse-workspace/wordle/src/CMakeFiles/edit_cache.dir
-/home/sayre/eclipse-workspace/wordle/src/CMakeFiles/rebuild_cache.dir
