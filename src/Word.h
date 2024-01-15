@@ -16,12 +16,12 @@ struct Wordstr {
     Wordstr() { }
     Wordstr(const char s[]) {
         for (int i = 0; i < 5; ++i) {
-            b[i] = s[i];
+            b[i] = std::tolower(s[i]);
         }
     }
     Wordstr(string s) {
         for (int i = 0; i < 5 && i < s.length(); ++i) {
-            b[i] = s.data()[i];
+            b[i] = std::tolower(s.data()[i]);
         }
     }
 
@@ -39,6 +39,26 @@ struct Wordstr {
         return c_count;
     }
 
+    bool operator <(const Wordstr &rhs) const {
+        for (int i = 0; i < sizeof(b); ++i) {
+            if (b[i] < rhs.b[i]) {
+                return true;
+            } else if (b[i] > rhs.b[i]) {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    bool operator ==(const Wordstr &rhs) const {
+        for (int i = 0; i < sizeof(b); ++i) {
+            if (b[i] != rhs.b[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 };
 
 struct Guess {
@@ -49,6 +69,12 @@ struct Guess {
     }
     Guess(string l, string c) : letters(l), colors(c) {
     }
+    void print() const {
+        letters.print();
+        cout << " ";
+        colors.print();
+        cout << endl;
+    }   
 };
 
 class Word {

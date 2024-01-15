@@ -4,6 +4,7 @@
 #include <map>
 #include <initializer_list>
 #include <iostream>
+#include <fstream>
 #include <set>
 #include "Word.h"
 
@@ -42,8 +43,9 @@ protected:
     // TODO: Uncomment the assignment operator when you need it.
     //Wordle& operator=(const Wordle& src);
 private:
+    set<Wordstr> words_so_far;
     vector<Guess> m_guesses;
-    vector<vector<Wordstr> > m_possibilities;
+    vector<vector<Wordstr>> m_possibilities;
     map<char, int> m_freq;
     set<char> m_letters_in_solution;
     set<char> m_letters_already_guessed;

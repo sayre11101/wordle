@@ -5,6 +5,7 @@ bool Word::test(const Guess &guess) const {
     for (int i = 0; ok && i < sizeof(Wordstr); ++i) {
         // first check that greens align and yellows do not align
         switch (guess.colors.b[i]) {
+        case 'y':
         case 'Y':
             if (m_word.b[i] == guess.letters.b[i]) {
                 ok = false;
@@ -23,11 +24,13 @@ bool Word::test(const Guess &guess) const {
                 }
             }
             break;
+        case 'g':
         case 'G':
             if (m_word.b[i] != guess.letters.b[i]) {
                 ok = false;
             }
             break;
+        case 'b':
         case 'B':
             for (int j = 0; ok && j < sizeof(Wordstr); ++j) {
                 if (m_word.b[j] == guess.letters.b[i]) {
