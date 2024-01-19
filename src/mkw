@@ -1,0 +1,3 @@
+g++ *.cpp
+cp a.out `dirname $0`/wordle
+chmod +x `dirname $0`/wordle
